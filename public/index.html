@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Employee Dashboard</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="layout">
+
+  <!-- Sidebar -->
+  <aside class="sidebar">
+    <h2>🏢 Company</h2>
+    <ul>
+      <li class="active">Dashboard</li>
+      <li>Employees</li>
+      <li>Reports</li>
+      <li>Settings</li>
+    </ul>
+  </aside>
+
+  <!-- Main -->
+  <main class="main">
+    
+    <!-- Navbar -->
+    <header class="navbar">
+      <h1>Employee Dashboard</h1>
+      <span class="user">👤 Admin</span>
+    </header>
+
+    <!-- Stats -->
+    <section class="stats">
+      <div class="card">Total Employees <h3 id="total">0</h3></div>
+      <div class="card">Active <h3 id="active">0</h3></div>
+      <div class="card">On Leave <h3 id="leave">0</h3></div>
+    </section>
+
+    <!-- Table -->
+    <section class="table-section">
+      <h2>Employee List</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>Role</th>
+            <th>Status</th>
+          </tr>
+        </thead>
+        <tbody id="employeeTable"></tbody>
+      </table>
+    </section>
+
+  </main>
+
+</div>
+
+<script src="app.js"></script>
+</body>
+</html>
