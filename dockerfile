@@ -1,20 +1,14 @@
-# 1️⃣ Use lightweight Node.js image
-FROM node:20-alpine
+FROM node:18-alpine
 
-# 2️⃣ Set working directory inside container
 WORKDIR /app
 
-# 3️⃣ Copy package files first (for caching)
 COPY package*.json ./
+RUN npm install
 
-# 4️⃣ Install dependencies
-RUN npm install --production
-
-# 5️⃣ Copy all project files
 COPY . .
+RUN npm run build
 
-# 6️⃣ Expose app port
+FROM nginx:alpine
+COPY --from=0 /app/build /usr/share/nginx/html
 EXPOSE 3000
-
-# 7️⃣ Start the server
-CMD ["node", "server.js"]
+CMD ["nginx", "-g", "daemon off;"]
